@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app
-  namespace: my-app-{{ .Values.environment }}
 spec:
-  replicas: {{ .Values.replica }}
+  replicas: 2
   selector:
     matchLabels:
       app: react

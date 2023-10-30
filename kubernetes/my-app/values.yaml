@@ -1,7 +1,3 @@
-replica: 2
 image:
   repository: ${ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/my-app-dev
-  pullPolicy: IfNotPresent
   tag: "latest"
-
-environment: dev
