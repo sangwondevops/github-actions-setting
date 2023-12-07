@@ -9,3 +9,7 @@ jobs: # 실행시킬 job의 집합
         steps:
             - name: step1
               run: echo hello world
+            - name: step2
+              run: |
+                  echo hello world
+                  echo github action
