@@ -1,0 +1,11 @@
+name: push-workflow
+on: push
+# 어떤 이벤트로 인해 깃허브 액션을 트리거 시킬지 정할 수 있음
+# push 이벤트에 의해 트리거 하겠다
+
+jobs: # 실행시킬 job의 집합
+    push-job:
+        runs-on: ubuntu-latest # push-job이 우분투에서 실행된다
+        steps:
+            - name: step1
+              run: echo hello world
