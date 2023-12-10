@@ -10,9 +10,13 @@
       <Group
          location = "group:../.github/workflows"
          name = "workflows">
-         <FileRef
-            location = "group:push.yaml">
-         </FileRef>
+         <Group
+            location = "container:"
+            name = "part1">
+            <FileRef
+               location = "group:/Users/sweetwork/Downloads/projects/github-actions/github-actions/push.yaml">
+            </FileRef>
+         </Group>
       </Group>
       <FileRef
          location = "group:init.sh">
