@@ -17,6 +17,9 @@
                location = "group:/Users/sweetwork/Downloads/projects/github-actions/github-actions/push.yaml">
             </FileRef>
          </Group>
+         <FileRef
+            location = "group:pull_request.yaml">
+         </FileRef>
       </Group>
       <FileRef
          location = "group:init.sh">
