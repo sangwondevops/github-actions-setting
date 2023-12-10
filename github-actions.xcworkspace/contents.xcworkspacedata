@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Dockerfile">
+   </FileRef>
+   <Group
+      location = "group:kubernetes"
+      name = "kubernetes">
+      <Group
+         location = "group:../.github/workflows"
+         name = "workflows">
+         <FileRef
+            location = "group:push.yaml">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:init.sh">
+      </FileRef>
+      <Group
+         location = "group:my-app"
+         name = "my-app">
+         <FileRef
+            location = "group:Chart.yaml">
+         </FileRef>
+         <Group
+            location = "group:templates"
+            name = "templates">
+            <FileRef
+               location = "group:deployment.yaml">
+            </FileRef>
+            <FileRef
+               location = "group:service.yaml">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:values.yaml">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:create-cluster.yaml">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:my-app"
+      name = "my-app">
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <Group
+         location = "group:public"
+         name = "public">
+         <FileRef
+            location = "group:favicon.ico">
+         </FileRef>
+         <FileRef
+            location = "group:index.html">
+         </FileRef>
+         <FileRef
+            location = "group:logo512.png">
+         </FileRef>
+         <FileRef
+            location = "group:manifest.json">
+         </FileRef>
+         <FileRef
+            location = "group:robots.txt">
+         </FileRef>
+         <FileRef
+            location = "group:logo192.png">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:package-lock.json">
+      </FileRef>
+      <FileRef
+         location = "group:package.json">
+      </FileRef>
+      <Group
+         location = "group:src"
+         name = "src">
+         <FileRef
+            location = "group:reportWebVitals.js">
+         </FileRef>
+         <FileRef
+            location = "group:App.css">
+         </FileRef>
+         <FileRef
+            location = "group:index.js">
+         </FileRef>
+         <FileRef
+            location = "group:index.css">
+         </FileRef>
+         <FileRef
+            location = "group:App.test.js">
+         </FileRef>
+         <FileRef
+            location = "group:setupTests.js">
+         </FileRef>
+         <FileRef
+            location = "group:logo.svg">
+         </FileRef>
+         <FileRef
+            location = "group:App.js">
+         </FileRef>
+      </Group>
+   </Group>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+</Workspace>
