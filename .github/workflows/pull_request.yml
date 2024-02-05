@@ -1,4 +1,4 @@
-name: pull-request-workflow
+name: pull-request-workflow 2
 on: pull_request
 
 jobs:
@@ -9,6 +9,4 @@ jobs:
       run: echo hello world
     - name: step2
       run: |
-        echo hello world
         echo test
-      
