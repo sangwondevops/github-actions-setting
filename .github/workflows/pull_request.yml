@@ -9,6 +9,6 @@ jobs:
       run: echo hello world
     - name: step2
       run: |
-      echo hello world
-      echo i'm jungwoo
+        echo hello world
+        echo i'm jungwoo
       
