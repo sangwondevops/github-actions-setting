@@ -1,1 +1,10 @@
+name: push-workflow
+on: push 
 
+jobs:
+  push-job: 
+    runs-on: ubuntu-latest
+    steps:
+      step:
+      - name: step1
+        run: echo hello world
