@@ -11,3 +11,5 @@ jobs:
           run: |
            echo hello world2
            echo github action!
+        - name: step3
+          run: test!
