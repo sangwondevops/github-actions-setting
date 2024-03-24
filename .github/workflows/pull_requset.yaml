@@ -11,5 +11,5 @@ jobs:
               run : echo hellow2
             - name: step3
               run:
-                echo hellow world1
+                echo hellow world
                 echo hellow world2
