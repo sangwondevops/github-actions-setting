@@ -1,5 +1,7 @@
-name: pull-request-workflow
-on: pull_request
+name: pull-request-workflow-1
+on: 
+    pull_request:
+        types: [opened] 
 
 jobs:
     pull_request-job:
@@ -14,4 +16,6 @@ jobs:
         - name: step3
           run: echo test!
         - name: step4
+          run: echo test!
+        - name: step5
           run: echo test!
