@@ -1,0 +1,21 @@
+name: pull-request-workflow-finally-good!!
+on: 
+    pull_request:
+        types: [opened] 
+
+jobs:
+    pull_request-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: step1
+          run: echo hello world
+        - name: step2
+          run: |
+           echo hello world2
+           echo github action!
+        - name: step3
+          run: echo test!
+        - name: step4
+          run: echo test!
+        - name: step5
+          run: echo test!
