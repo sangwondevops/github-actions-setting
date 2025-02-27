@@ -3,8 +3,8 @@ kind: ClusterConfig
 
 metadata:
   name: github-actions-cluster
-  region: ap-northeast-1
-  version: "1.27"
+  region: ap-northeast-2
+  version: "1.29"
 
 iamIdentityMappings:
   - arn: arn:aws:iam::${ACCOUNT_ID}:role/github-actions
