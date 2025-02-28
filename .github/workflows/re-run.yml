@@ -1,0 +1,13 @@
+name: re-run
+on: push
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: test
+              run: echo "test"
+            - name: test2
+              run: |
+                echo "test2"
+                echo "test3"
