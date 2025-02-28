@@ -1,0 +1,13 @@
+name: pull_request-workflow
+on: pull_request # pull_request 이벤트가 발생할 때 workflow 실행
+
+jobs: 
+  push-job:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: step1 
+        run: echo "hello world" 
+      - name: step2
+        run: | 
+          echo "hello world2"
+          echo "hello world3"

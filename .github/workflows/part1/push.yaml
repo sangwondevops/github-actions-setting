@@ -8,6 +8,6 @@
         - name: step1 # 단계 이름
           run: echo "hello world" # 실행할 명령어
         - name: step2
-          run: |
+          run: | # 여러 줄의 명령어 실행
             echo "hello world2"
             echo "hello world3"
