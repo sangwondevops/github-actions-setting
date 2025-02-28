@@ -1,6 +1,8 @@
 name: pull_request-workflow
-on: pull_request # pull_request 이벤트가 발생할 때 workflow 실행
-
+on: 
+    pull_request:
+        #types: [opened, synchronize] # pull_request가 열리거나 업데이트 될 때 workflow 실행 
+        types: [opened] # pull_request가 열릴 때만 workflow 실행
 jobs: 
   push-job:
     runs-on: ubuntu-latest 
