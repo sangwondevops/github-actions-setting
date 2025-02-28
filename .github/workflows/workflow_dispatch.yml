@@ -5,7 +5,7 @@ on:
             name:
                 description: 'set name'
                 required: true # 필수냐?
-                default: github-actions'
+                default: 'github-actions'
                 type: string
             environment:
                 description: 'set env'
