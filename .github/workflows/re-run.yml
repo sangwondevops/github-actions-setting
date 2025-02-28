@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: test
-              run: echo "test"
+              uses: actions/checkout@v4 # checkout 액션 사용
             - name: test2
               run: |
                 echo "test2"
