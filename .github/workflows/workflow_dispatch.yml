@@ -6,15 +6,16 @@ on:
                 description: 'set name'
                 required: true # 필수냐?
                 default: github-actions'
+                type: string
             environment:
                 description: 'set env'
                 required: true
                 default: 'dev'
                 type: choice
                 options:
-                    - dev
-                    - prod
-                    - qa
+                - dev
+                - prod
+                - qa
 
 jobs:
     workflow_dispatch-job:
