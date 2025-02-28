@@ -28,5 +28,5 @@ jobs:
                 echo "hello world3"
             - name: echo inputs
               run: |
-                echo ${{ github.event.inputs.name }}
-                echo ${{ github.event.inputs.environment }}
+                echo ${{ inputs.name }}
+                echo ${{ inputs.environment }}
