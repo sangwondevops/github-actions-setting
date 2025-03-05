@@ -2,19 +2,19 @@ name: checkout
 on: workflow_dispatch
 
 jobs:
-    no-checkout:
+    no-checkout: # github 레포지토리를 가지고 오지 않고 사용
         runs-on: ubuntu-latest
         steps:
-            - name: no-checkout
+            - name: no-checkout  # run 에러(README.md 파일이 없음)
               run: |
-                echo "no-checkout"
-                cat README.md
-    checkout:
+                echo "no-checkout" 
+                cat README.md 
+    checkout: # github 레포지토리를 가지고 와서 사용
         runs-on: ubuntu-latest
         steps:
             - name: checkout
               uses: actions/checkout@v4 # checkout 액션 사용
-            - name: checkout2
+            - name: checkout2 # checkout 액션을 사용하여 README.md 파일을 가지고 와서 사용
               run: |
                 echo "checkout2"
                 cat README.md

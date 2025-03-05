@@ -7,3 +7,8 @@ jobs:
         steps:
             - name: github context
               run: echo '${{toJSON(github)}}'
+              # 내 github 내용을 josn으로 변환하여 출력
+            - name: check github context
+              run: |
+                echo ${{github.repository}}  # github 레포지토리 정보 출력
+                echo ${{github.event_name}} # github 이벤트 이름 출력
