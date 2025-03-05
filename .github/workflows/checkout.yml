@@ -1,0 +1,20 @@
+name: checkout
+on: workflow_dispatch
+
+jobs:
+    no-checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: no-checkout
+              run: |
+                echo "no-checkout"
+                cat README.md
+    checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4 # checkout 액션 사용
+            - name: checkout2
+              run: |
+                echo "checkout2"
+                cat README.md
