@@ -9,13 +9,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v2 # 깃허브에서 제공하는 체크아웃 액션 사용
             - name: setup-node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v3 # 노드.js 설정 액션 사용
               with: 
                 node-version: 18 
             - name: Cache node.js modules
-              uses: actions/cache@v3
+              uses: actions/cache@v3 # 캐시 액션 사용
               with:
                 path: ~/.npm # npm 패키지 캐시 경로
                 key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
