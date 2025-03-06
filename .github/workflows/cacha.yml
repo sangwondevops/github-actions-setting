@@ -1,0 +1,33 @@
+name: cache
+on:
+    push:
+        paths:
+            - 'myapp/**' # myapp 디렉토리 내 파일이 변경되었을 때만 workflow 실행
+
+jobs:
+    cache:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+            - name: setup-node
+              uses: actions/cache@v3
+              with: 
+                node-version: 18 
+            - name: Cache node.js modules
+              uses: actions/cache@3
+              with:
+                path: ~/.npm # npm 패키지 캐시 경로
+                key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
+                # {{사용할 os}}-node-{{package-lock.json 파일의 해시값}}으로 키 생성
+                restore-keys: |
+                  ${{runner.os}}-node-
+                - name: Install dependencies
+                  run: |
+                  cd my-app
+                  nmp ci
+                - name: npm build
+                  run: |
+                  cd my-app
+                  nmp run build
+                
