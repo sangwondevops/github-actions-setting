@@ -2,7 +2,7 @@ name: cache
 on:
     push:
         paths:
-            - 'myapp/**' # myapp 디렉토리 내 파일이 변경되었을 때만 workflow 실행
+            - 'my-app/**' # myapp 디렉토리 내 파일이 변경되었을 때만 workflow 실행
 
 jobs:
     cache:
