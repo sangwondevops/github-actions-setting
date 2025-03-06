@@ -29,5 +29,5 @@ jobs:
                 echo "hello world3"
             - name: echo inputs
               run: |
-                echo ${{ inputs.name }}
-                echo ${{ inputs.environment }}
+                echo ${{ inputs.name }} # 입력받은 name 출력
+                echo ${{ inputs.environment }} # 입력받은 environment 출력
