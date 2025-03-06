@@ -7,7 +7,7 @@ jobs:
             - name: echo
               run: echo hello-world > hello.txt
             - name: upload artifact
-              uses: actions/upload-artifact@v3 # artifact 업로드 액션 사용
+              uses: actions/upload-artifact@v4 # artifact 업로드 액션 사용
               with:
                   name: artifact-test
                   path: ./hello.txt
@@ -17,7 +17,7 @@ jobs:
         runs-on: ubuntu-latest        
         steps:
             - name: download artifact
-              uses: actions/download-artifact@v3 # artifact 다운로드 액션 사용
+              uses: actions/download-artifact@v4 # artifact 다운로드 액션 사용
               with:
                   name: artifact-test
                   path: ./ # 현재 디렉토리에 다운로드
