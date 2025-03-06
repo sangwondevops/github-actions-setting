@@ -1,0 +1,12 @@
+name: path-filter
+on:
+    push:
+        paths: # 특정 파일이 변경되었을 때만 workflow 실행
+            - .github/workflows/part1/* # .github/workflows/part1/ 디렉토리 내 파일이 변경되었을 때
+
+jobs:
+    path-filter:
+        runs-on: ubuntu-latest
+        steps:
+            - name: path-filter
+              run: echo "path-filter"
