@@ -3,7 +3,7 @@ on: push
 
 jobs: 
     timeout:
-        runs-no: ubuntu-latest
+        runs-on: ubuntu-latest
         timeout-minutes: 2  # 2분 후에 workflow 종료
         steps:
             - name: loop
