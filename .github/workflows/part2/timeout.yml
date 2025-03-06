@@ -1,0 +1,18 @@
+name: timeout
+on: push
+
+jobs: 
+    timeout:
+        runs-no: ubuntu-latest
+        timeout-minutes: 2  # 2분 후에 workflow 종료
+        steps:
+            - name: loop
+                run: |
+                count=0
+                while true; do
+                    echo "count: $count"
+                    count=$(($count+1))
+                    sleep 10
+                done
+            - name: echo
+                run: echo "hello world"
