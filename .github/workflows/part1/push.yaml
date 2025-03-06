@@ -1,8 +1,8 @@
   name: push-workflow
   on: push #push 이벤트가 발생할 때 workflow 실행
 
-  jobs: # 잡 필수
-    push-job:
+  jobs: # 잡 필수(하나 이상 필요)
+    push-job: 
       runs-on: ubuntu-latest # 실행 환경
       steps:
         - name: step1 # 단계 이름
