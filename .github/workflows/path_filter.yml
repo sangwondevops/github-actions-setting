@@ -2,8 +2,8 @@ name: path-filter
 on:
     push:
         paths: # 특정 파일이 변경되었을 때만 workflow 실행
-            - .github/workflows/part1/* # .github/workflows/part1/ 디렉토리 내 파일이 변경되었을 때
-            - !.github/workflows/part1/push.yaml # .github/workflows/part1/push.yml은 제외
+            - '.github/workflows/part1/*' # .github/workflows/part1/ 디렉토리 내 파일이 변경되었을 때
+            - '!.github/workflows/part1/push.yaml' # .github/workflows/part1/push.yml은 제외
 
 jobs:
     path-filter:
