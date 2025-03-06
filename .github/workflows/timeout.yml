@@ -7,7 +7,7 @@ jobs:
         timeout-minutes: 2  # 2분 후에 workflow 종료
         steps:
             - name: loop
-                run: |
+              run: |
                 count=0
                 while true; do
                     echo "count: $count"
@@ -15,4 +15,4 @@ jobs:
                     sleep 10
                 done
             - name: echo
-                run: echo "hello world"
+              run: echo "hello world"
