@@ -15,7 +15,7 @@ jobs:
               with: 
                 node-version: 18 
             - name: Cache node.js modules
-              uses: actions/cache@3
+              uses: actions/cache@v3
               with:
                 path: ~/.npm # npm 패키지 캐시 경로
                 key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
