@@ -1,4 +1,4 @@
-name: cache1
+name: cache
 on:
     push:
         paths:
