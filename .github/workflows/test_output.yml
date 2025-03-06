@@ -12,5 +12,5 @@ jobs:
               run: echo "test=hello2" >> "$GITHUB_OUTPUT"
             - name: check
               run: |
-                echo ${{step.check1.outputs.test}}
-                echo ${{step.check2.outputs.test}}
+                echo ${{ steps.check1.outputs.test }}
+                echo ${{ steps.check2.outputs.test }}
