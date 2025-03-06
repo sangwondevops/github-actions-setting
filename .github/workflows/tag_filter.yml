@@ -1,0 +1,13 @@
+name: tag-filter
+on:
+    push:
+        tags:
+            - 'v[0-9]+.[0-9]+.[0-9]+' # v로 시작하고 0-9 사이의 숫자가 3개인 태그가 push될 때만 workflow 실행
+            #v1.0.0, v2.0.0, v3.0.0, ...(1, 1.0은 트리거 되지 않음)
+        
+jobs:
+    tag-filter:
+        runs-on: ubuntu-latest
+        steps:
+            - name: tag-filter
+              run: echo "tag-filter"
