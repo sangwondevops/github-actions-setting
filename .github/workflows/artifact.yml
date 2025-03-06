@@ -10,7 +10,7 @@ jobs:
               uses: actions/upload-artifact@v3 # artifact 업로드 액션 사용
               with:
                   name: artifact-test
-                  paths: ./hello.txt
+                  path: ./hello.txt
 
     download-artifact:
         needs: [upload-artifact] # upload-artifact 잡이 성공적으로 완료되어야만 실행
