@@ -14,5 +14,6 @@ jobs:
                     count=$(($count+1))
                     sleep 10
                 done
+              timeout-minutes: 1  # 1분 후에 step 종료
             - name: echo
               run: echo "hello world"
