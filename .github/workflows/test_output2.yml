@@ -1,9 +1,9 @@
-name: output
+name: output2
 on: push
 jobs:
     create-output:
         runs-on: ubuntu-latest
-        outputs:
+        outputs: # 잡 실행 결과를 다른 잡에 전달
             test: ${{steps.check.outputs.test}}
         steps:
             - name: echo output
