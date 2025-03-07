@@ -9,10 +9,10 @@ jobs:
             - name: echo output
               id: check
               rut: |
-              echo "test=hello" >> "$GITHUB_OUTPUT"
+                echo "test=hello" >> "$GITHUB_OUTPUT"
             - name: check2
               run: |
-              echo ${{ steps.check.outputs.test }}
+                echo ${{ steps.check.outputs.test }}
         
     get-output:
         needs: [create-output] # create-job이 성공적으로 완료되어야만 실행
