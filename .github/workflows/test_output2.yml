@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: echo output
               id: check
-              rut: |
+              run: |  
                 echo "test=hello" >> "$GITHUB_OUTPUT"
             - name: check2
               run: |
