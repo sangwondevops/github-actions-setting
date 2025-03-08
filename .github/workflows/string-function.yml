@@ -4,7 +4,7 @@ on: push
 jobs:
     string-funtion:
         runs-on: ubuntu-latest
-        step:
+        steps:
         - name: startwith
           if: startwith('github','git')
           run: echo "git"
