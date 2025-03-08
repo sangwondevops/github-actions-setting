@@ -11,6 +11,7 @@ jobs:
     job2:
         needs: job1
         runs-on: ubuntu-latest
+        if: always() # 항상 실행
         steps:
         - name: echo
           run: echo "job2"
