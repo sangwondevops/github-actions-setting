@@ -16,3 +16,14 @@ jobs:
         steps:
             - name: job2
               run: echo ${{github.event_name}}
+    job3:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: job1
+            if: github.event_name=='push'
+              run: echo ${{github.event_name}}
+            # 스탭 단위
+            - name: job1
+            if: github.event_name!='push'
+              run: echo ${{github.event_name}}
