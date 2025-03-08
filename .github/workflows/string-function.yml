@@ -1,0 +1,27 @@
+name: string-function
+on: push
+
+jobs:
+    string-funtion:
+        runs-on: ubuntu-latest
+        step:
+        - name: startwith
+          if: startwith('github','git')
+          run: echo "git"
+        - name: startwith
+          if: startwith('github','hub')
+          run: echo "hub"
+
+        - name: endwith
+          if: endwith('github','hub')
+          run: echo "hub"
+        - name: endwith
+          if: endwith('github','git')
+          run: echo "git"
+
+        - name: contains
+          if: contains('github','hub')
+          run: echo "hub"
+        - name: contains
+          if: contains('github','git')
+          run: echo "git"
