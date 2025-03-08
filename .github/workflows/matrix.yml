@@ -2,7 +2,7 @@ name: matrix
 on: push
 jobs:
     get-matrix: # job name
-        startegy: 
+        strategy: # matrix 설정
             matrix:
                 os: [ubuntu-latest, windows-latest, macos-latest]
                 version: [12,14] 
