@@ -26,5 +26,5 @@ jobs:
     # 토큰으로 로그인
         - name: create-repo
           run: |
-            gh repo create gitchulsoo-action/${{inputs.prefix}}-${{inputs.name}} --public --add-readme
+            gh repo create r2d2c2/${{inputs.prefix}}-${{inputs.name}} --public --add-readme
     # 퍼블릭 레포지토리 생성
