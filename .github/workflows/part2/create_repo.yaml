@@ -1,0 +1,40 @@
+name: create-repo
+on:
+  workflow_dispatch:
+    inputs:
+      prefix:
+        description: 'set repo prefix'
+        required: true
+        default: 'service'
+        type: choice
+        options:
+        - example
+        - service
+        - hello
+      name: 
+        description: 'set repo name'
+        required: true
+        default: 'github-actions'
+        type: string
+
+jobs:
+  create-repo-automation:
+    runs-on: ubuntu-latest
+    steps:
+    - name: gh auth login
+      run: |
+        echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}" | gh auth login --with-token ## 깃헙 권한 사용
+    - name: create-repo
+      id: create_repo  # Step에 ID 추가
+      run: |
+        gh repo create ghactions-practice/${{ inputs.prefix }}-${{ inputs.name }} --public --add-readme ## 레포 생성 
+    - name: slack
+      if: always()
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        payload: |
+          {
+              "text": "Repository: ${{ inputs.prefix }}-${{ inputs.name }} ${{ job.status }}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
