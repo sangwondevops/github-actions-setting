@@ -23,8 +23,8 @@ jobs:
         - name: gh auth login
           run: |
           echo ${{secrets.KEY}} | gh auth login --with-token
-    # 토큰으로 로그인
+        # 토큰으로 로그인
         - name: create-repo
           run: |
             gh repo create r2d2c2/${{inputs.prefix}}-${{inputs.name}} --public --add-readme
-    # 퍼블릭 레포지토리 생성
+        # 퍼블릭 레포지토리 생성
