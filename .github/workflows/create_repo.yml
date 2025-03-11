@@ -22,7 +22,7 @@ jobs:
         steps:
         - name: gh auth login
           run: |
-            echo ${{secrets.KEY}} | gh auth login --with-token
+            echo ${{secrets.key}} | gh auth login --with-token
         # 토큰으로 로그인
         - name: create-repo
           run: |
