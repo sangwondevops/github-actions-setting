@@ -5,7 +5,7 @@ on:
             prefix:
                 description: "set repo prefix"
                 required: true # 필수 입력값라고 설정
-                default: "service"
+                default: "service" # 기본값 설정(입력값이 없을 때)
                 type: choice
                 options:
                 - example
@@ -14,7 +14,7 @@ on:
             name:
                 description: "set repo name"
                 required: true
-                default: "github-actions"
+                default: "github-actions" 
                 type: string
 jobs:
     create-repo-automation:
@@ -22,7 +22,7 @@ jobs:
         steps:
         - name: gh auth login
           run: |
-            echo ${{secrets.key}} | gh auth login --with-token
+            echo ${{secrets.MYKEY}} | gh auth login --with-token
         # 토큰으로 로그인
         - name: create-repo
           run: |
