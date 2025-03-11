@@ -7,7 +7,7 @@ on:
                 required: true # 필수 입력값라고 설정
                 default: "service"
                 type: choice
-                otions:
+                options:
                 - example
                 - service
 
@@ -22,7 +22,7 @@ jobs:
         steps:
         - name: gh auth login
           run: |
-          echo "${{secrets.KEY}}" | gh auth login --with-token
+          echo ${{secrets.KEY}} | gh auth login --with-token
     # 토큰으로 로그인
         - name: create-repo
           run: |
