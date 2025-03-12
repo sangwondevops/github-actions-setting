@@ -50,6 +50,6 @@ jobs:
                     }
                     ]
                 }
-        env:
-            SLACK_WEBHOOK_URL: ${{secrets.SLACK_KEY}}
-            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          env:
+            slack_webhook_url: ${{ secrets.SLACK_KEY }}
+            slack_webhook_type: 'incoming-webhook'
