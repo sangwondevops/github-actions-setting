@@ -46,7 +46,7 @@ jobs:
                         "short":true,
                         "value":"${{inputs.prefix}}-${{inputs.name}}"
                         }
-                      ]"
+                      ]
                     }
                     ]
                 }
