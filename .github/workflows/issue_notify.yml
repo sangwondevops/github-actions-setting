@@ -35,7 +35,7 @@ jobs:
         - name: slack
           uses: slackapi/slack-github-action@v2.0.0  # 슬랙 액션 사용
           with:
-            webhook: ${{ secrets.SLACK_KEY }}  # 시크릿에 저장된 슬랙 키 사용
+            webhook: ${{ secrets.SLACK_WEBHOOK_URL }}  # 시크릿에 저장된 슬랙 키 사용
             webhook-type: incoming-webhook
             payload-templated: true
             payload: |
