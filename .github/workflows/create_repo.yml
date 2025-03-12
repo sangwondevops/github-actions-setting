@@ -5,7 +5,7 @@ on:
             prefix:
                 description: "set repo prefix"
                 required: true # 필수 입력값라고 설정
-                default: "service" # 기본값 설정(입력값이 없을 때)
+                default: "service2" # 기본값 설정(입력값이 없을 때)
                 type: choice
                 options:
                 - example
