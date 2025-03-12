@@ -1,56 +1,61 @@
 name: create-repo
 on:
-    workflow_dispatch:
-        inputs:
-            prefix:
-                description: "set repo prefix"
-                required: true # 필수 입력값라고 설정
-                default: "service2" # 기본값 설정(입력값이 없을 때)
-                type: choice
-                options:
-                - example
-                - service
+  workflow_dispatch:
+    inputs:
+      prefix:
+        description: "set repo prefix"
+        required: true
+        default: "service2"
+        type: choice
+        options:
+          - example
+          - service
+      name:
+        description: "set repo name"
+        required: true
+        default: "github-actions"
+        type: string
 
-            name:
-                description: "set repo name"
-                required: true
-                default: "github-actions" 
-                type: string
 jobs:
-    create-repo-automation:
-        runs-on: ubuntu-latest
-        steps:
-        - name: gh auth login
-          run: |
-            echo ${{secrets.MYKEY}} | gh auth login --with-token
-        # 토큰으로 로그인
-        - name: create-repo
-          id: create-repo
-          run: |
-            gh repo create r2d2c2/${{inputs.prefix}}-${{inputs.name}} --public --add-readme
-        # 퍼블릭 레포지토리 생성
+  create-repo-automation:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_KEY }}
+      SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    steps:
+      - name: gh auth login
+        run: |
+          echo ${{ secrets.MYKEY }} | gh auth login --with-token
+      # 토큰으로 로그인
 
-        - name: slack
-          if: always()
-          uses: slackapi/slack-github-action@v2.0.0
-          with:
-            payload: |
-              {
-                "attachments": [
-                  {
-                    "pretext": "create repo result",
-                    "color": "#36a64f",
-                    "fields": [
-                      {
-                        "title": "create repo result ${{ steps.create-repo.outcome }}",
-                        "short": true,
-                        "value": "${{ github.event.inputs.prefix }}-${{ github.event.inputs.name }}"
-                      }
-                    ]
-                  }
-                ]
-              }
-          env:
-            slack_webhook_url: ${{ secrets.SLACK_KEY }}
-            slack_webhook_type: 'incoming-webhook'
+      - name: create-repo
+        id: create-repo
+        run: |
+          gh repo create r2d2c2/${{ github.event.inputs.prefix }}-${{ github.event.inputs.name }} --public --add-readme
+      # 퍼블릭 레포지토리 생성
+
+      - name: slack
+        if: always()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          payload: |
+            {
+              "attachments": [
+                {
+                  "pretext": "create repo result",
+                  "color": "#36a64f",
+                  "fields": [
+                    {
+                      "title": "create repo result ${{ steps.create-repo.outcome }}",
+                      "short": true,
+                      "value": "${{ github.event.inputs.prefix }}-${{ github.event.inputs.name }}"
+                    }
+                  ]
+                }
+              ]
+            }
+
+        env:
+            SLACK_WEBHOOK_URL: ${{secrets.SLACK_KEY}}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
