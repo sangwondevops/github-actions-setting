@@ -17,7 +17,7 @@ jobs:
             echo level=Undefined>>$GITHUB_OUTPUT  # 기본 level 값을 Undefined로 설정
             keywords=$(cat keyword-list.txt)  # keyword-list.txt 파일에서 키워드 목록을 읽음
             for keyword in $keywords; do
-              if [["${{github.event.issue.title}}"=~ "$keyword"]]; then  # 이슈 제목에 키워드가 포함되어 있는지 확인
+              if [[ "${{github.event.issue.title}}" =~ "$keyword "]]; then  # 이슈 제목에 키워드가 포함되어 있는지 확인
                 echo level=$keyword>>$GITHUB_OUTPUT  # 포함되어 있으면 level 값을 해당 키워드로 설정
               fi
             done
