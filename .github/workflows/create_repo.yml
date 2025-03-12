@@ -54,7 +54,9 @@ jobs:
                 }
               ]
             }
-
+          errors: false
+          payload-templated: false
+          retries: 5
         env:
             SLACK_WEBHOOK_URL: ${{secrets.SLACK_KEY}}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
