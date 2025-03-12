@@ -24,3 +24,33 @@ jobs:
         - name: get output
           run: |
             echo ${{steps.get-keyword.outputs.level}}  # level 값을 출력
+
+# slack 추가
+    slack:
+        needs: [get-keyword]  # get-keyword 스텝이 성공적으로 완료되면 실행
+        if: needs.get-keyword.outputs.level != 'Undefined'
+        # get-keyword 스텝의 level 값이 Undefined가 아닐 때만 실행
+        runs-on: ubuntu-latest
+        steps:
+        - name: slack
+          uses: slackapi/slack-github-action@v2.0.0  # 슬랙 액션 사용
+          with:
+            webhook: ${{ secrets.SLACK_KEY }}  # 시크릿에 저장된 슬랙 키 사용
+            webhook-type: incoming-webhook
+            payload-templated: true
+            payload: |
+              {
+                "attachments":[
+                    {
+                    "pretext":"issue alert message",
+                    "color":"#36a64f",
+                    "fields":[
+                        {
+                        "title":"Level : ${{needs.get-keyword.outputs.level}}",
+                        "short":true,
+                        "value":"${{github.event.issue.html_url}}"
+                        }
+                      ]
+                    }
+                    ]
+                }
