@@ -25,6 +25,31 @@ jobs:
             echo ${{secrets.MYKEY}} | gh auth login --with-token
         # 토큰으로 로그인
         - name: create-repo
+          id: create-repo
           run: |
             gh repo create r2d2c2/${{inputs.prefix}}-${{inputs.name}} --public --add-readme
         # 퍼블릭 레포지토리 생성
+
+        - name: slack
+          if: always()
+          uses: slackapi/slack-github-action@v1.24.0
+          with:
+            payload: |
+              {
+                "attachments":[
+                    {
+                    "pretext":"create repo result",
+                    "color":"#36a64f",
+                    "fields":[
+                        {
+                        "title":"create repo result ${{steps.create-repo.outcome}}",
+                        "short":true,
+                        "value":"${{inputs.prefix}}-${{inputs.name}}"
+                        }
+                      ]"
+                    }
+                    ]
+                    }
+        env:
+            SLACK_WEBHOOK_URL: ${{secrets.SLACK_KEY}}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
