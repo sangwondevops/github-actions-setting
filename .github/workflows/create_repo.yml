@@ -36,20 +36,21 @@ jobs:
           with:
             payload: |
               {
-                "attachments":[
-                    {
-                    "pretext":"create repo result",
-                    "color":"#36a64f",
-                    "fields":[
-                        {
-                        "title":"create repo result ${{steps.create-repo.outcome}}",
-                        "short":true,
-                        "value":"${{inputs.prefix}}-${{inputs.name}}"
-                        }
-                      ]
-                    }
+                "attachments": [
+                  {
+                    "pretext": "create repo result",
+                    "color": "#36a64f",
+                    "fields": [
+                      {
+                        "title": "create repo result ${{ steps.create-repo.outcome }}",
+                        "short": true,
+                        "value": "${{ github.event.inputs.prefix }}-${{ github.event.inputs.name }}"
+                      }
                     ]
-                }
+                  }
+                ]
+              }
           env:
             slack_webhook_url: ${{ secrets.SLACK_KEY }}
             slack_webhook_type: 'incoming-webhook'
+
