@@ -1,0 +1,26 @@
+name: issue-notify  # 워크플로우 이름
+on:
+    issues:
+        types: [opened]  # 이슈가 열릴 때 트리거
+
+jobs:
+    get-keyword:
+        runs-on: ubuntu-latest  # 최신 우분투 환경에서 실행
+        outputs:
+            level: ${{steps.get-keyword.outputs.level}}  # get-keyword 스텝의 출력값을 level로 설정
+        steps:
+        - name: checkout
+          uses: actions/checkout@v4  # 깃헙 레포지토리를 체크아웃
+        - name: get keyword
+          id: get-keyword
+          run: |
+            echo level=Undefined>>$GITHUB_OUTPUT  # 기본 level 값을 Undefined로 설정
+            keywords=$(cat keyword-list.txt)  # keyword-list.txt 파일에서 키워드 목록을 읽음
+            for keyword in $keywords; do
+              if [["${{github.event.issue.title}}"=~ "$keyword"]]; then  # 이슈 제목에 키워드가 포함되어 있는지 확인
+                echo level=$keyword>>$GITHUB_OUTPUT  # 포함되어 있으면 level 값을 해당 키워드로 설정
+              fi
+            done
+        - name: get output
+          run: |
+            echo ${{steps.get-keyword.outputs.level}}  # level 값을 출력
