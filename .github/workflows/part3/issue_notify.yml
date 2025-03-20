@@ -31,10 +31,10 @@ jobs:
         if: needs.get-keyword.outputs.level != 'Undefined'
         # get-keyword 스텝의 level 값이 Undefined가 아닐 때만 실행
         runs-on: ubuntu-latest
-        strategy:
-          matrix:
-            environment: ["${{needs.get-keyword.outputs.level}}"]
-        environment: ${{ matrix.environment }}
+        strategy: # 매트릭스 전략 사용
+          matrix: # 매트릭스 설정
+            environment: ["${{needs.get-keyword.outputs.level}}"] # get-keyword 스텝의 level 값으로 환경 설정
+        environment: ${{ matrix.environment }} # 매트릭스 환경 설정
         steps:
         - name: slack
           uses: slackapi/slack-github-action@v2.0.0  # 슬랙 액션 사용
