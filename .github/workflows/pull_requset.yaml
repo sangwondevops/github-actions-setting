@@ -1,4 +1,4 @@
-name: pull-requset-workflow-1
+name: pull-requset-workflow-2
 on: pull_request
 
 jobs:
