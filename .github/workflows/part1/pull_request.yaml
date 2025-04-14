@@ -1,0 +1,15 @@
+name: pull_request-workflow
+on: 
+    pull_request:
+        #types: [opened, synchronize] # pull_request가 열리거나 업데이트 될 때 workflow 실행 
+        types: [opened] # pull_request가 열릴 때만 workflow 실행
+jobs: 
+  push-job:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: step1 
+        run: echo "hello world" 
+      - name: step2
+        run: | 
+          echo "hello world2"
+          echo "hello world3"

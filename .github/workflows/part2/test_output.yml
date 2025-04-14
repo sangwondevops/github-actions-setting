@@ -1,0 +1,16 @@
+name: output
+on: push
+jobs:
+    output-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo
+              id: check1
+              run: echo "test=hello" >> "$GITHUB_OUTPUT"
+            - name: output
+              id: check2
+              run: echo "test=hello2" >> "$GITHUB_OUTPUT"
+            - name: check
+              run: |
+                echo ${{ steps.check1.outputs.test }}
+                echo ${{ steps.check2.outputs.test }}

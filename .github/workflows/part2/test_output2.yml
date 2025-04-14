@@ -1,0 +1,22 @@
+name: output2
+on: push
+jobs:
+    create-output:
+        runs-on: ubuntu-latest
+        outputs: # 잡 실행 결과를 다른 잡에 전달
+            test: ${{steps.check.outputs.test}}
+        steps:
+            - name: echo output
+              id: check
+              run: |  
+                echo "test=hello" >> "$GITHUB_OUTPUT"
+            - name: check2
+              run: |
+                echo ${{ steps.check.outputs.test }}
+        
+    get-output:
+        needs: [create-output] # create-job이 성공적으로 완료되어야만 실행
+        runs-on: ubuntu-latest
+        steps:
+            - name: get output
+              run: echo ${{needs.create-output.outputs.test}}

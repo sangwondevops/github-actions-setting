@@ -1,0 +1,11 @@
+name: branch-filter
+on:
+    push: # push 이벤트 발생 시
+        branches: ["dev"] # dev 브래치에만 적용
+
+jobs:
+    branch-filter:
+        runs-on: ubuntu-latest
+        steps:
+            - name: branch-filter
+              run: echo "branch-filter"

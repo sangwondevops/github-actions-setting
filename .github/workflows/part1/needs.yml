@@ -1,0 +1,30 @@
+name: needs
+on: push
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job1
+              run: echo "job1"
+
+    job2:
+        runs-on: ubuntu-latest
+        needs: [job1] # 종속성 설정
+        steps:
+            - name: job2
+              run: echo "job2"
+
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job3 # 동시에 실행
+              run: |
+                echo "job3 failed"
+                exit 1
+    job4:
+        runs-on: ubuntu-latest
+        needs: [job3] # 종속성 설정 job3이 실패하면 실행 안됨
+        steps:
+            - name: job4
+              run: echo "job4"

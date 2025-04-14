@@ -1,0 +1,27 @@
+name: if-1
+on:
+    push: # push 발생시
+    workflow_dispatch: # 수동 실행
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push' # push 이벤트 발생시만 실행
+        steps:
+            - name: job1
+              run: echo ${{ github.event_name }}
+    job2:
+        runs-on: ubuntu-latest
+        if: github.event_name != 'push' # workflow_dispatch 이벤트 발생시만 실행
+        steps:
+            - name: job2
+              run: echo ${{ github.event_name }}
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job3-step1
+              if: github.event_name == 'push' # 스탭 단위
+              run: echo ${{ github.event_name }}
+            - name: job3-step2
+              if: github.event_name != 'push' # 스탭 단위
+              run: echo ${{ github.event_name }}
