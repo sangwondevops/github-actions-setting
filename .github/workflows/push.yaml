@@ -1,0 +1,9 @@
+name: push-workflow
+on: push
+
+jobs:
+  push-job: # job의 이름
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1
+      run: echo hello world
