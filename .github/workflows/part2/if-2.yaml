@@ -1,0 +1,22 @@
+name: if-1\2
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: exit1
+        run: exit1
+      - name: echo
+        if: always()
+        run: echo hello
+  job2:
+    needs: [job1]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: echo
+        run: echo hello
