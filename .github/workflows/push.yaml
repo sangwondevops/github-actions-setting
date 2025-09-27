@@ -1,0 +1,9 @@
+name : push_workflows
+on: push
+
+jobs:
+  job_for_push:
+    runs_on: ubuntu-latest
+    steps:
+    - name: 1st_step
+      run: eche Greeting Stranger  
