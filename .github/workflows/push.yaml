@@ -6,4 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 1st_step
-      run: echo Greeting Stranger  
+      run: echo Greeting Stranger
+    - name: 2nd_step
+      run : |
+        echo Hi Friend!
+        echo Make Friend!
