@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 1st_step
-      run: eche Greeting Stranger  
+      run: echo Greeting Stranger  
