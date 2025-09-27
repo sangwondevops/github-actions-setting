@@ -1,4 +1,4 @@
-name : pull_req
+name : pull_req_other_branch
 on : pull_request
 
 jobs:
