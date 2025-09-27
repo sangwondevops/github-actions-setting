@@ -1,0 +1,13 @@
+name : pull_req
+on : pull_request
+
+jobs:
+  jobs-for-pull_req:
+    runs-on : ubuntu-latest
+    steps : 
+    - name : 1st_pull_req_step
+      run : echo Hello, Mate
+    - name : 2nd_pull_req_step
+      run : | 
+        echo How are you
+        echo Welcome!
