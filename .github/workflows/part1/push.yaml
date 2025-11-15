@@ -1,0 +1,25 @@
+name: push-workflow 2 # 보여지는 이름(명시적으로 작성하기.)
+on: push #어떤 이벤트로 인해 Github Action이 실행될지 지정.
+
+jobs:
+  push-job : 
+    runs-on: ubuntu-latest # 어떤 환경에서 실행될지 지정.
+    steps:
+      - name: step1 # 각 스텝의 이름 지정.
+        run : echo hello world # 쉘 명령어 실행.
+      - name : step2
+        run : |
+          echo "This is step 2"
+          echo "Multiple lines in a single step"
+      #   uses: actions/checkout@v2 # Github Action에서 제공하는 액션 사용.
+        
+      # - name: Set up Node.js # Node.js 설정
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '14' # Node.js 버전 지정.
+
+      # - name: Install dependencies # 의존성 설치
+      #   run: npm install # 쉘 명령어 실행.
+
+      # - name: Run tests # 테스트 실행
+      #   run: npm test # 쉘 명령어 실행.

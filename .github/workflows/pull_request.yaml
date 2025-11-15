@@ -1,0 +1,13 @@
+name: pull-request-workflow
+on: pull_request
+
+jobs:
+  pull-request-job : 
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        run : echo "Hello from pull request workflow"
+      - name: step2
+        run : |
+          echo "This is step 2 of pull request workflow"
+          echo "Multiple lines in a single step"
