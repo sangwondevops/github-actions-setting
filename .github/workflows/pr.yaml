@@ -10,4 +10,4 @@ jobs:
     - name: step2
       run: |
        echo hello github~
-       echo  ready to go
+       echo pull request to go
