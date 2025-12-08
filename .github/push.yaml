@@ -1,4 +1,4 @@
-name: pudh-worklfow
+name: push-worklfow
 on: push
 
 jobs:
