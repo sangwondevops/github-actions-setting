@@ -1,4 +1,4 @@
-name: push-worklfow 1
+name: push-worklfow 
 on: push
 
 jobs:
