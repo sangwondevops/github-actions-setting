@@ -1,0 +1,9 @@
+name: push-workflow
+on: push # push event일 떄 workflow를 트리거 하겠다.
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1 # 생략 가능
+      run: echo hello world
