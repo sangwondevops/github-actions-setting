@@ -4,7 +4,7 @@ on: push
 jobs:
   timeout-job:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 2 # job level time out
     steps:
       - name: loop
         run: |
@@ -14,6 +14,6 @@ jobs:
             count=$((count+1))
             sleep 1
           done
-        timeout-minutes: 1
+        timeout-minutes: 1 # step level time out
       - name: echo
         run: echo hello
