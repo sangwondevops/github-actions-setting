@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: my-app/package-lock.json
       - name: Install dependencies
         run: |
           cd my-app
