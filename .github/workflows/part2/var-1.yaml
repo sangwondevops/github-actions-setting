@@ -35,5 +35,3 @@ jobs:
         run: echo "level=job2" >> $GITHUB_ENV
       - name: check env
         run: echo "LEVEL ${{ env.level }}"
-
-
