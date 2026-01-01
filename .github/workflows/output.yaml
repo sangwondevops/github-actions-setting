@@ -4,6 +4,8 @@ on: push
 jobs:
   create-output-job:
     runs-on: ubuntu-latest
+    outputs:
+      test:  ${{ steps.check-output.outputs.test }} # 이렇게 하면 다른 job 에서도 사용 가능
     steps:
       - name: echo output
         id: check-output
@@ -12,3 +14,9 @@ jobs:
       - name: check output
         run: |
           echo ${{ steps.check-output.outputs.test }}
+  get-output-job:
+    needs: create-output-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: get output
+        run: echo ${{ needs.create-output-job.outputs.test }}
