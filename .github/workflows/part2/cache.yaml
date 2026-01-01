@@ -2,7 +2,7 @@ name: cache
 on:
   push:
     paths:
-      - 'my-app/**' # ** = 하위에 모든 폴더 포함
+      - '../../../my-app' # ** = 하위에 모든 폴더 포함
 
 jobs:
   cache-job:
