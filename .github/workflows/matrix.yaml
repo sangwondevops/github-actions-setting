@@ -5,7 +5,7 @@ jobs:
   get-matrix-job:
     strategy:
       matrix:
-        os: [window-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest]
         version: [12, 14]
     runs-on: ${{ matrix.os }}
     steps:
