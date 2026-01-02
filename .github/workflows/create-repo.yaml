@@ -39,7 +39,7 @@ jobs:
                 {
                   "pretext": "create repo result",
                   "color": "28a745",
-                  "fields" [
+                  "fields": [
                     {
                       "title": "create repo result ${{ steps.create-repo.outcome }}",
                       "short": true,
