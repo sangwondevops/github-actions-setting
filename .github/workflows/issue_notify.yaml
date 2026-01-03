@@ -29,7 +29,7 @@ jobs:
 
   slack-job:
     needs: get-keyword-job
-    if: needs.get-keyword-job.outputs != 'Undefined'
+    if: needs.get-keyword-job.outputs.level != 'Undefined'
     runs-on: ubuntu-latest
     environment: ${{ needs.get-keyword-job.outputs.level }}
     steps:
