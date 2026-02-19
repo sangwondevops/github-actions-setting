@@ -9,3 +9,7 @@ jobs:
       run: |
         echo hello world
         echo hello jaewook
+    - name: step2
+      run: |
+        echo this is second step
+        echo hello this is second step
